@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <title>Librairie KeyDiversification</title>
+    </properties>
+    <body>
+        <section name="Librairie KeyDiversification">
+            <subsection name="Introduction">
+                <p>
+                    Cette librairie fournit un service de diversification de clés.
+                </p>
+            </subsection>
+        </section>
+    </body>
+</document>

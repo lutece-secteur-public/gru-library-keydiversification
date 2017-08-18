@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <title>Library KeyDiversification</title>
+    </properties>
+    <body>
+        <section name="Library KeyDiversification">
+            <subsection name="Introduction">
+                <p>
+                    This library provides a Key Diversification service.
+                </p>
+                <p>
+                    It could be used by an Identity Provider (IDP) to give a
+                    specific Identity Key for each Service Provider (SP) corresponding
+                    to the same Identity.
+                </p>
+            </subsection>
+        </section>
+    </body>
+</document>
