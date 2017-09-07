@@ -31,44 +31,70 @@
  *
  * License 1.0
  */
-      
 
 package fr.paris.lutece.util.keydiversification;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * DiversificationService 
+ * This service manages the keys for Identity Providers (IDP) and Service Providers (SP)
  */
-public class DiversificationService 
+public final class DiversificationService
 {
-    private static Map<String, CryptoService> _mapCryptoServices = new HashMap<>();
-    
-    public static String getSPKey( String strIDPKey , String strSP ) throws Exception
-    {
-        CryptoService cs = _mapCryptoServices.get( strSP );
-        if( cs == null )
-        {
-            cs = new CryptoService( strSP );
-            _mapCryptoServices.put( strSP, cs );
-        }
-        
-        return cs.encrypt( strIDPKey );
-    }
-    
+    private static Map<String, CryptoService> _mapCryptoServices = new ConcurrentHashMap<>( );
 
-    public static String getIDPKey( String strSPKey , String strSP ) throws Exception
+    /**
+     * Default constructor
+     */
+    private DiversificationService( )
     {
-        CryptoService cs = _mapCryptoServices.get( strSP );
-        if( cs == null )
-        {
-            cs = new CryptoService( strSP );
-            _mapCryptoServices.put( strSP, cs );
-        }
-        
-        return cs.decrypt( strSPKey );
+
     }
-    
-    
+
+    /**
+     * Converts the specified IDP key into a key usable by the SP
+     * 
+     * @param strIDPKey
+     *            the IDP key to converts
+     * @param strSP
+     *            the SP using the key
+     * @return the key usable by the SP
+     * @throws KeyDiversificationException
+     *             if there is an error during the treatment
+     */
+    public static String getSPKey( String strIDPKey, String strSP ) throws KeyDiversificationException
+    {
+        CryptoService cryptoService = _mapCryptoServices.get( strSP );
+        if ( cryptoService == null )
+        {
+            cryptoService = new CryptoService( strSP );
+            _mapCryptoServices.put( strSP, cryptoService );
+        }
+
+        return cryptoService.encrypt( strIDPKey );
+    }
+
+    /**
+     * Converts the specified SP key into the IDP key
+     * 
+     * @param strSPKey
+     *            the key used by the SP
+     * @param strSP
+     *            the SP using the key
+     * @return the IDP key
+     * @throws KeyDiversificationException
+     *             if there is an error during the treatment
+     */
+    public static String getIDPKey( String strSPKey, String strSP ) throws KeyDiversificationException
+    {
+        CryptoService cryptoService = _mapCryptoServices.get( strSP );
+        if ( cryptoService == null )
+        {
+            cryptoService = new CryptoService( strSP );
+            _mapCryptoServices.put( strSP, cryptoService );
+        }
+
+        return cryptoService.decrypt( strSPKey );
+    }
 }

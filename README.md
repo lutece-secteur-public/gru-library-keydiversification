@@ -1,4 +1,4 @@
-![](http://dev.lutece.paris.fr/jenkins/buildStatus/icon?job=gru-plugin-keydiversification-deploy)
+![](http://dev.lutece.paris.fr/jenkins/buildStatus/icon?job=gru-library-keydiversification-deploy)
 # Library KeyDiversification
 
 ## Introduction
@@ -6,6 +6,14 @@
 This library provides a Key Diversification service.
 
 It could be used by an Identity Provider (IDP) to give a specific Identity Key for each Service Provider (SP) correspondingto the same Identity.
+
+## Service
+
+The entry point of the library is the service `fr.paris.lutece.util.keydiversification.DiversificationService` . This service provides:
+ 
+* a method to get a SP key from the IDP key
+* a method to get the IDP key from a SP key
+
 
 
 [Maven documentation and reports](http://dev.lutece.paris.fr/plugins/library-keydiversification/)

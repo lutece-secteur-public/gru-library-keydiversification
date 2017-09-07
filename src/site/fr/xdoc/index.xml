@@ -9,6 +9,19 @@
                 <p>
                     Cette librairie fournit un service de diversification de clés.
                 </p>
+                <p>
+                    Il peut être utilisé par un fournisseur d'identités (IDP) afin de donner une clé d'identité spécifique à chaque fournisseur de services (SP), pour une même identité.
+                </p>
+            </subsection>
+            <subsection name="Service">
+                <p>
+                    Le point d'entrée de la librairie est le service <code>fr.paris.lutece.util.keydiversification.DiversificationService</code>.
+                    Ce service fournit :
+                    <ul>
+                        <li>une méthode pour obtenir une clé SP à partir de la clé IDP</li>
+                        <li>une méthode pour obtenir la clé IDP à partir d'une clé SP</li>
+                    </ul>
+                </p>
             </subsection>
         </section>
     </body>

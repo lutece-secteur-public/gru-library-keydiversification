@@ -15,6 +15,16 @@
                     to the same Identity.
                 </p>
             </subsection>
+            <subsection name="Service">
+                <p>
+                    The entry point of the library is the service <code>fr.paris.lutece.util.keydiversification.DiversificationService</code>.
+                    This service provides:
+                    <ul>
+                        <li>a method to get a SP key from the IDP key</li>
+                        <li>a method to get the IDP key from a SP key</li>
+                    </ul>
+                </p>
+            </subsection>
         </section>
     </body>
 </document>

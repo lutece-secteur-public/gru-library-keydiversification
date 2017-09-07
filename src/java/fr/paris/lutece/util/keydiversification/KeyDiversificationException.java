@@ -31,47 +31,49 @@
  *
  * License 1.0
  */
-
 package fr.paris.lutece.util.keydiversification;
 
-import java.util.UUID;
-import org.junit.Test;
-
 /**
- * DiversificationService Test
+ * This class represents an {@code Exception} for the key diversification service
+ *
  */
-public class DiversificationServiceTest
+public class KeyDiversificationException extends Exception
 {
 
     /**
-     * Test of getSPKey method, of class DiversificationService.
-     * 
-     * @throws java.lang.Exception
-     *             if there is an error during the test
+     * Generated serial ID
      */
-    @Test
-    public void testGetSPKey( ) throws Exception
+    private static final long serialVersionUID = -631414424493536125L;
+
+    /**
+     * Constructor
+     *
+     * @param strMessage
+     *            The error message
+     */
+    public KeyDiversificationException( String strMessage )
     {
-        System.out.println( "DiversificationService test" );
-        UUID idKey = UUID.randomUUID( );
-        String strIDPKey = idKey.toString( );
-
-        System.out.println( "----------------------------------------------------" );
-        System.out.println( "IDP key           : " + strIDPKey );
-        buildKey( "Service provider 1", strIDPKey );
-        buildKey( "Service provider 2", strIDPKey );
-        System.out.println( "----------------------------------------------------" );
-
+        super( strMessage );
     }
 
-    private static void buildKey( String strSP, String strIDPKey ) throws Exception
+    /**
+     * Constructor
+     *
+     * @param strMessage
+     *            The error message
+     * @param exception
+     *            The initial exception
+     */
+    public KeyDiversificationException( String strMessage, Exception exception )
     {
-        String strSPKey = DiversificationService.getSPKey( strIDPKey, strSP );
-        String strRecovery = DiversificationService.getIDPKey( strSPKey, strSP );
+        super( strMessage, exception );
+    }
 
-        System.out.println( "----------------------------------------------------" );
-        System.out.println( "SP name           : " + strSP );
-        System.out.println( "SP key    (3DES)  : " + strSPKey );
-        System.out.println( "Recovered IDP key : " + strRecovery );
+    /**
+     * Constructor
+     */
+    public KeyDiversificationException( )
+    {
+        super( );
     }
 }
