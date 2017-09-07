@@ -29,12 +29,12 @@
             </snapshots>
         </repository>
     </repositories>
-	
+
     <properties>
         <jiraProjectName>KDIVERSIFY</jiraProjectName>
         <jiraComponentId>13766</jiraComponentId>
     </properties>
-    
+
     <scm>
         <connection>scm:git:https://github.com/lutece-secteur-public/gru-library-keydiversification.git</connection>
         <developerConnection>scm:git:https://github.com/lutece-secteur-public/gru-library-keydiversification.git</developerConnection>
